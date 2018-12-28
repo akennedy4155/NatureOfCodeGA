@@ -61,3 +61,38 @@ Following along with the nature of code GA chapter
             * this element's fitness / total fitness of the generation
 
 ## Reproduction
+
+1. Crossover
+
+    * Create a child out of the genetic code of two parents
+    * 50/50 chance of taking a value of each parent for each piece of the DNA
+    * in the text case this is a chance to pick a character at an index from each parent for each character in the string
+
+2. Mutation
+
+    * described in terms of a rate
+    * 1% rate means each character has a 1% chance of mutating
+    * in the text case this means picking a random character and replacing
+
+## Main Loop
+
+1. Initialize
+
+    * create a population of N elements, each with randomly generated DNA
+
+2. Selection
+
+    * evaluate the fitness of each element of the population and build a mating pool
+
+3. Reproduction
+
+    * repeat N times
+
+        * **select** - pick two parents with probability according to fitness score
+        * **crossover** - create a child by combining the DNA of these two parents
+        * **mutation** - mutate the child's DNA based on rate of mutation
+        * **add** - add the new child to a new population
+
+4. Replace
+
+    * replace the old population with the new population and return to the loop starting at Step 2
