@@ -15,7 +15,8 @@ function setup () {
     frameRate(fRate);
     targetElement = createP(['Target: ' + targetPhrase]);
     createPopulation();
-    selection();
+    let matingPool = selection();
+    reproduction(matingPool);
 }
 
 function draw() {
@@ -58,5 +59,16 @@ function selection () {
             matingPool.push(population[i]);
         }
     }
+    return matingPool;
 
+}
+
+function reproduction(pool) {
+    // pick two distinct parents
+    let parentA = pool[Math.floor(Math.random() * pool.length)];
+    let parentB = pool[Math.floor(Math.random() * pool.length)];
+    while (parentB == parentA) {
+        parentB = pool[Math.floor(Math.random() * pool.length)];
+    }
+    let child = parentA.crossover(parentB);
 }
