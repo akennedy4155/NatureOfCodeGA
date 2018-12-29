@@ -23,4 +23,18 @@ class DNA {
         }
         return fitness;
     }
+
+    crossover(other) {
+        let child = "";
+        for (let i = 0; i < this.phrase.length; i++) {
+            let choice = Math.round(Math.random());
+            if(choice) {
+                child += this.phrase[i];
+            }
+            else {
+                child += other.phrase[i];
+            }
+        }
+        return child;
+    }
 }
